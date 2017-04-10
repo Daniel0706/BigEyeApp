@@ -101,7 +101,6 @@
 		9CA4FB5A1E988F7300CABAA2 /* MyTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA4FB571E988F7300CABAA2 /* MyTabBarItem.m */; };
 		9CA4FB5B1E988F7300CABAA2 /* MyTabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA4FB591E988F7300CABAA2 /* MyTabbarViewController.m */; };
 		9CA4FB5E1E9892B700CABAA2 /* ViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA4FB5D1E9892B700CABAA2 /* ViewController1.m */; };
-		9CA4FB611E9892C300CABAA2 /* ViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA4FB601E9892C300CABAA2 /* ViewController2.m */; };
 		9CA4FB651E98B86600CABAA2 /* ATLNewFeatureControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA4FB631E98B86600CABAA2 /* ATLNewFeatureControl.m */; };
 		9CA4FC751E98D2E100CABAA2 /* EaseUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA4FB6B1E98D2E100CABAA2 /* EaseUI.m */; };
 		9CA4FC761E98D2E100CABAA2 /* EMAudioPlayerUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA4FB751E98D2E100CABAA2 /* EMAudioPlayerUtil.m */; };
@@ -413,8 +412,6 @@
 		9CA4FB591E988F7300CABAA2 /* MyTabbarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTabbarViewController.m; sourceTree = "<group>"; };
 		9CA4FB5C1E9892B600CABAA2 /* ViewController1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController1.h; sourceTree = "<group>"; };
 		9CA4FB5D1E9892B700CABAA2 /* ViewController1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController1.m; sourceTree = "<group>"; };
-		9CA4FB5F1E9892C300CABAA2 /* ViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController2.h; sourceTree = "<group>"; };
-		9CA4FB601E9892C300CABAA2 /* ViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController2.m; sourceTree = "<group>"; };
 		9CA4FB631E98B86600CABAA2 /* ATLNewFeatureControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ATLNewFeatureControl.m; path = ../ATLNewFeatureControl.m; sourceTree = "<group>"; };
 		9CA4FB641E98B86600CABAA2 /* ATLNewFeatureControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ATLNewFeatureControl.h; path = ../ATLNewFeatureControl.h; sourceTree = "<group>"; };
 		9CA4FB691E98D2E100CABAA2 /* EaseUI-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EaseUI-Prefix.pch"; sourceTree = "<group>"; };
@@ -726,8 +723,6 @@
 				9CA4F9EA1E987E9200CABAA2 /* ViewController.m */,
 				9CA4FB5C1E9892B600CABAA2 /* ViewController1.h */,
 				9CA4FB5D1E9892B700CABAA2 /* ViewController1.m */,
-				9CA4FB5F1E9892C300CABAA2 /* ViewController2.h */,
-				9CA4FB601E9892C300CABAA2 /* ViewController2.m */,
 				9CA4F9EC1E987E9200CABAA2 /* Main.storyboard */,
 				9CA4F9EF1E987E9200CABAA2 /* Assets.xcassets */,
 				9CA4F9F11E987E9200CABAA2 /* LaunchScreen.storyboard */,
@@ -2135,7 +2130,6 @@
 				9CA4FB391E988A4B00CABAA2 /* SDImageCache.m in Sources */,
 				9CA4FAFC1E98814200CABAA2 /* AFNetworkReachabilityManager.m in Sources */,
 				9CA4FB3E1E988A4B00CABAA2 /* SDWebImageManager.m in Sources */,
-				9CA4FB611E9892C300CABAA2 /* ViewController2.m in Sources */,
 				9CA4FB421E988A4B00CABAA2 /* UIImage+MultiFormat.m in Sources */,
 				9CA4FA5D1E987FB900CABAA2 /* MJRefreshAutoStateFooter.m in Sources */,
 				9CA4FA571E987FB900CABAA2 /* MJRefreshBackFooter.m in Sources */,
@@ -2432,6 +2426,7 @@
 				9CA4FA0F1E987E9300CABAA2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9CA4FA101E987E9300CABAA2 /* Build configuration list for PBXNativeTarget "BigEyeTests" */ = {
 			isa = XCConfigurationList;
@@ -2440,6 +2435,7 @@
 				9CA4FA121E987E9300CABAA2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9CA4FA131E987E9300CABAA2 /* Build configuration list for PBXNativeTarget "BigEyeUITests" */ = {
 			isa = XCConfigurationList;
@@ -2448,6 +2444,7 @@
 				9CA4FA151E987E9300CABAA2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

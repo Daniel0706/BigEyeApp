@@ -20,7 +20,7 @@
 //#import "RebuildHomeViewController.h"
 //#import "EaseMobMessageViewController.h"
 #import "ViewController1.h"
-#import "ViewController2.h"
+#import "ViewController.h"
 
 
 @interface MyTabbarViewController ()
@@ -112,11 +112,11 @@
 
     
     //商城
-    ViewController2 *onlineShopVC = [[ViewController2 alloc] init];
+    ViewController *onlineShopVC = [[ViewController alloc] init];
     UINavigationController *navOnlineShopVC = [[UINavigationController alloc] initWithRootViewController:onlineShopVC];
     
     //知库
-    ViewController2 *MineVC = [[ViewController2 alloc] init];
+    ViewController *MineVC = [[ViewController alloc] init];
     UINavigationController *navKnowledgeVC = [[UINavigationController alloc] initWithRootViewController:MineVC];
     
     self.viewControllers = @[navHomeVC,navMessageVC,navOnlineShopVC,navKnowledgeVC];
