@@ -21,9 +21,14 @@
 //#import "EaseMobMessageViewController.h"
 #import "ViewController1.h"
 #import "ViewController.h"
+#import "HomeViewController.h"
+#import "ArtGalleryViewController.h"
+#import "MessageViewController.h"
+#import "MineViewController.h"
+#import "ReleaseViewController.h"
 
 
-@interface MyTabbarViewController ()
+@interface MyTabbarViewController ()<UITabBarControllerDelegate>
 {
     UIImageView     *_myTabbar;
     UIView          *_backGroundView;
@@ -36,7 +41,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.delegate = self;
+
     //创建视图控制器
     [self createViewControllers];
     
@@ -100,26 +106,27 @@
 }
 -(void)createViewControllers
 {
-    //首页
-//    HomeViewController *homeVC = [[HomeViewController alloc] init];
-//    UINavigationController *navHomeVC = [[UINavigationController alloc] initWithRootViewController:homeVC];
-    
-    ViewController1 *homeVC = [[ViewController1 alloc] init];
-    UINavigationController *navHomeVC = [[UINavigationController alloc] initWithRootViewController:homeVC];
-    
-    ViewController1 *mesaageViewController = [[ViewController1 alloc] init];
-    UINavigationController *navMessageVC = [[UINavigationController alloc] initWithRootViewController:mesaageViewController];
 
     
-    //商城
-    ViewController *onlineShopVC = [[ViewController alloc] init];
-    UINavigationController *navOnlineShopVC = [[UINavigationController alloc] initWithRootViewController:onlineShopVC];
+    HomeViewController *homeVC = [[HomeViewController alloc] init];
+    homeVC.title = @"大眼圈";
+    UINavigationController *navHomeVC = [[UINavigationController alloc] initWithRootViewController:homeVC];
     
-    //知库
-    ViewController *MineVC = [[ViewController alloc] init];
-    UINavigationController *navKnowledgeVC = [[UINavigationController alloc] initWithRootViewController:MineVC];
+    ArtGalleryViewController *artViewController = [[ArtGalleryViewController alloc] init];
+    artViewController.title = @"艺术回廊";
+    UINavigationController *navMessageVC = [[UINavigationController alloc] initWithRootViewController:artViewController];
+
+    ReleaseViewController *releaseVC = [[ReleaseViewController alloc] init];
+    UINavigationController *nacReleaseVC = [[UINavigationController alloc] initWithRootViewController:releaseVC];
+    //消息
+    MessageViewController *messageVC = [[MessageViewController alloc] init];
+    UINavigationController *navOnlineShopVC = [[UINavigationController alloc] initWithRootViewController:messageVC];
     
-    self.viewControllers = @[navHomeVC,navMessageVC,navOnlineShopVC,navKnowledgeVC];
+    //我的
+    MineViewController *mineVC = [[MineViewController alloc] init];
+    UINavigationController *navKnowledgeVC = [[UINavigationController alloc] initWithRootViewController:mineVC];
+    
+    self.viewControllers = @[navHomeVC,navMessageVC,nacReleaseVC,navOnlineShopVC,navKnowledgeVC];
 }
 
 -(void)createTabbar
@@ -128,25 +135,39 @@
     _myTabbar.image = [UIImage imageNamed:@"tabbar_bg"];
     _myTabbar.userInteractionEnabled = YES;
     [self.tabBar addSubview:_myTabbar];
+    
+    UIButton *releaseBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    releaseBtn.tag = 10000;
+    releaseBtn.frame = CGRectMake(self.tabBar.center.x - 32, -32, 64, 64);
+    [releaseBtn setImage:[UIImage imageNamed:@"post_normal"] forState:UIControlStateNormal];
+    releaseBtn.imageView.contentMode = UIViewContentModeScaleToFill;
+    releaseBtn.layer.cornerRadius = releaseBtn.frame.size.width / 2;
+    releaseBtn.layer.masksToBounds = YES;
+    releaseBtn.adjustsImageWhenHighlighted = NO;
+//    [releaseBtn addTarget:self action:@selector(releaseBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.tabBar addSubview:releaseBtn];
 }
 
 -(void)createTabbarItems
 {
-    NSArray *titleArray = @[@"工作",@"消息",@"项目搜索",@"我的"];
+    NSArray *titleArray = @[@"首页",@"艺术",@"发布",@"消息",@"我的"];
     
     NSArray *imageArray = @[@"logo_工作_未选中",
                             @"logo_消息_未选中",
+                            @"",
                             @"icon_搜索-未选中",
                             @"icon_我的_-未选中"];
     
     NSArray *imageSelectedArray = @[@"logo_工作_选中",
                                     @"logo_消息_选中",
+                                    @"",
                                     @"icon_搜索-选中",
                                     @"icon_我的_-选中"];
     for (int i = 0; i<titleArray.count; i++) {
         UITabBar *tabbar = self.tabBar;
         UITabBarItem *tabItem = [tabbar.items objectAtIndex:i];
         tabItem.title =titleArray[i];
+        tabItem.tag = i;
         UIColor *titleHighlightedColor = RGB(31, 147, 68);
         [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:titleHighlightedColor, NSForegroundColorAttributeName,nil] forState:UIControlStateSelected];
         UIImage *noImage =[[UIImage imageNamed:imageArray[i]]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
@@ -234,6 +255,34 @@
     NSInteger index = item.tag - 100;
     self.selectedIndex = index;
     
+}
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
+{
+    switch (item.tag) {
+        case 2:
+            [self releaseAction];
+            break;
+            
+        default:
+            break;
+    }
+}
+- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController
+{
+    if (viewController == self.viewControllers[2]) {
+        
+        return NO;
+    }
+    return YES;
+}
+- (void)releaseAction
+{
+    ReleaseViewController *releaseVC = [[ReleaseViewController alloc] init];
+    UINavigationController *navReleaseVC = [[UINavigationController alloc] initWithRootViewController:releaseVC];
+
+    [self presentViewController:navReleaseVC animated:YES completion:^{
+        
+    }];
 }
 
 

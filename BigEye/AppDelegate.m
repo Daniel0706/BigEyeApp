@@ -10,6 +10,8 @@
 #import "MyTabbarViewController.h"
 #import "ATLNewFeatureControl.h"
 #import "MyTabbarViewController.h"
+#import "FeatureViewController.h"
+
 
 @interface AppDelegate ()
 
@@ -37,9 +39,9 @@
     
 //    ATLNewFeatureControl *tabVC = [[ATLNewFeatureControl alloc] init];
     
-    MyTabbarViewController *tabVC = [[MyTabbarViewController alloc] init];
-    self.mainNavigationController = [[UINavigationController alloc] initWithRootViewController:tabVC];
-    self.window.rootViewController = tabVC;
+//    MyTabbarViewController *tabVC = [[MyTabbarViewController alloc] init];
+//    self.mainNavigationController = [[UINavigationController alloc] initWithRootViewController:tabVC];
+    self.window.rootViewController = [[ATLNewFeatureControl alloc]init];
     
     return YES;
 }

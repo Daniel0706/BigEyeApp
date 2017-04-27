@@ -8,4 +8,7 @@
 
 #import <UIKit/UIKit.h>
 @interface MyTabbarViewController : UITabBarController
+
+- (void)releaseAction;
+
 @end

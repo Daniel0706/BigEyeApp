@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "SLEditingViewController.h"
 
 @interface ViewController ()
 
@@ -16,14 +17,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    UIButton *editVC = [[UIButton alloc] initForAutoLayout];
+    [self.view addSubview:editVC];
+    [editVC autoCenterInSuperviewAlongAxis:ALAxisVertical];
+    [editVC autoCenterInSuperviewAlongAxis:ALAxisHorizontal];
+    [editVC autoSetDimension:ALDimensionHeight toSize:100];
+    [editVC autoSetDimension:ALDimensionWidth toSize:100];
+    [editVC addTarget:self action:@selector(jumpEditVC) forControlEvents:UIControlEventTouchUpInside];
+    [editVC setTitle:@"编辑" forState:UIControlStateNormal];
 }
+- (void) jumpEditVC {
 
+    SLEditingViewController *editVC = [[SLEditingViewController alloc] init];
+    [self.navigationController pushViewController:editVC animated:YES];
+    
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
-
 
 @end

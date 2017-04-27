@@ -10,11 +10,14 @@
 #import "ViewController.h"
 #import "MyTabbarViewController.h"
 
-#define KMPicNum 3
+#define KMPicNum 4
 #define viewsize self.view.bounds.size
-#define NewFeatureImageCount 3
+#define NewFeatureImageCount 4
 
 @interface ATLNewFeatureControl ()<UIScrollViewDelegate>
+{
+    MyTabbarViewController *_TAB;
+}
 @property (nonatomic, weak) UIPageControl *pageControl;
 @property (nonatomic, strong)UIButton *button;
 @property (nonatomic, strong)UIButton *checkBox;
@@ -143,10 +146,9 @@
    // self.view.window.rootViewController =[[UIViewController alloc] init];
         //ViewController *CON = [[ViewController alloc] init];
     
-    MyTabbarViewController *TAB = [[MyTabbarViewController alloc] init];
+    _TAB = [[MyTabbarViewController alloc] init];
     
-    self.view.window.rootViewController = TAB;
-  //  [self presentModalViewController:TAB animated:YES];
+    self.view.window.rootViewController = _TAB;
 
 }
 
