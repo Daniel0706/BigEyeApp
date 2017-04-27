@@ -9,6 +9,8 @@
 #import "HomeViewController.h"
 #import "ServiceActionSheetManager.h"
 #import "VPImageCropperViewController.h"
+#import <UShareUI/UShareUI.h>
+
 
 #define ORIGINAL_MAX_WIDTH 640.0f
 
@@ -36,29 +38,12 @@
     _image = [[UIImageView alloc] initWithFrame:CGRectMake(0, 100, ScreenWidth, 200 )];
     [self.view addSubview:_image];
     _image.backgroundColor = [UIColor redColor];
-//    [self createActionSheetManager];
     
 }
-//-(void)createActionSheetManager
-//{
-//    _actionSheetManager=[[ServiceActionSheetManager alloc]init];
-//    _actionSheetManager.currentViewControll=self;
-//    _actionSheetManager.allowEdit=YES;
-//    __weak typeof(self)wSelf=self;
-//    [_actionSheetManager setSendImageBlock:^(UIImage *image,NSData *pictureData) {
-////        userRefreshData *refreshData = [userRefreshData shareInstance];
-////        refreshData.refreshHeadImage = image;
-////        [refreshData refreshUserData];
-////        //上传头像
-////        [wSelf postUserHeaderImage:pictureData];
-////        wSelf.headImage.image = image;
-//    }];
-//}
+
 
 - (void)btnClicked {
 
-//    LXActionSheet *action=[[LXActionSheet alloc]initWithTitle:nil delegate:_actionSheetManager cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@[@"拍照",@"从手机相册选取"]];
-//    [action showInView:self.view];
     
     UIActionSheet *choiceSheet = [[UIActionSheet alloc] initWithTitle:nil
                                                              delegate:self
@@ -66,6 +51,13 @@
                                                destructiveButtonTitle:nil
                                                     otherButtonTitles:@"拍照", @"从相册中选取", nil];
     [choiceSheet showInView:self.view];
+}
+- (void) share{
+    NSLog(@"分享");
+    //显示分享面板
+    [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
+        // 根据获取的platformType确定所选平台进行下一步操作
+    }];
 }
 #pragma mark VPImageCropperDelegate
 - (void)imageCropper:(VPImageCropperViewController *)cropperViewController didFinished:(UIImage *)editedImage {

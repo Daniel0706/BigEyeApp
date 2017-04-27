@@ -36,6 +36,13 @@ typedef enum : int{
 #define ALARMSENDER         @"alarm_sender"   //报警提醒
 
 
+#pragma mark ---- 友盟分享平台
+#define WXAppKey            @"wxdc1e388c3822c80b"
+#define QQQoneAppKey        @"tencent100424468"
+#define QQAppKey            @"QQ05fc5b14"
+#define WBAppKey            @"wb3921700954"
+
+#define USHARE_APPKEY       @"58f4ca7375ca35650e000c91"
 
 
 
